@@ -1,0 +1,119 @@
+main {
+  height: 100%;
+  width: 100%;
+  background-color: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+
+  // 🔹 Navbar styles
+  .navbar {
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #1f1f1f;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  section {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+  }
+
+  .conversation-area {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    .messages {
+      height: 100%;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1em;
+      padding: 0.5em;
+      padding-bottom: 4rem;
+      overflow-y: auto;
+
+      .message {
+        width: fit-content;
+        padding: 0.5em 0.7em;
+        border-radius: 0.5em;
+        color: rgb(178, 173, 173);
+        background-color: #4a534a;
+        max-width: 75%;
+        line-height: 1.4;
+
+        &.user {
+          align-self: flex-end;
+          background-color: #3c7af7;
+          color: white;
+        }
+
+        &.assistant {
+          align-self: flex-start;
+          background-color: #4a534a;
+          position: relative;
+          overflow: hidden;
+          white-space: pre-wrap;
+          animation: typing 0.05s steps(20, end) forwards;
+        }
+      }
+    }
+
+    .input-area {
+      width: 70%;
+      position: absolute;
+      background-color: #3c3c3c;
+      border: 1px solid #3c3c3c;
+      border-radius: 0.5em;
+      bottom: 2rem;
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 80%;
+        padding: 0.5em 0.7em;
+        outline: none;
+        border-radius: 0.5rem;
+        background-color: transparent;
+        border: none;
+        color: rgb(232, 232, 232);
+      }
+
+      button {
+        width: 20%;
+        padding: 0.5em 0.7em;
+        border: none;
+        border-radius: 0.45rem;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #43a047;
+        }
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
